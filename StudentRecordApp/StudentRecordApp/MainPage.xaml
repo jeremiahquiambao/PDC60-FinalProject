@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.MainPage">
+
+    <StackLayout Padding="30" BackgroundColor="#ffffff">
+
+        <Button CornerRadius="8" Text="Add Course" Clicked="OnAddClassClicked" HorizontalOptions="End" Margin="10" FontFamily="{StaticResource BoldFont}"/>
+
+        <Label Text="Courses" TextColor="#003566" FontSize="Title" Padding="10,10,30,10" FontFamily="{StaticResource BoldFont}"/>
+
+        <!-- Add a StackLayout to contain the cards -->
+        <StackLayout x:Name="ClassesStackLayout" Padding="10">
+
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

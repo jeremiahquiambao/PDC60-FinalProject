@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.EditClass">
+    
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            <Label Text="Update Course" TextColor="White" FontSize="Subtitle" FontFamily="{StaticResource BoldFont}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="30" BackgroundColor="#003566">
+            <Label FontFamily="{StaticResource RegularFont}" Text="Class Name"/>
+            <!-- Entry for Class Name -->
+            <Entry x:Name="ClassNameEntry" Placeholder="Class Course" Margin="0,10,0,10"/>
+
+            <!-- Add more input fields for other class details as needed -->
+
+            <Button FontFamily="{StaticResource BoldFont}" CornerRadius="8" Text="Update Course" Clicked="OnUpdateClassClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

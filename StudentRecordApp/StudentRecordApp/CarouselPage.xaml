@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.CarouselPage">
+    
+    <StackLayout BackgroundColor="#ffffff">
+        <CarouselView x:Name="Carousel" BackgroundColor="Black" IndicatorView="IndicatorView" HeightRequest="1080">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Url}" Aspect="AspectFill"/>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <Button Text="Log In" TextColor="White" BackgroundColor="#003566" FontFamily="{StaticResource BoldFont}" Margin="15,10,15,10" CornerRadius="7" HorizontalOptions="FillAndExpand"  Clicked="btnViewRecord_Clicked" />
+
+        <IndicatorView x:Name="IndicatorView"
+                IndicatorColor="Transparent"
+                SelectedIndicatorColor="Transparent"
+                IndicatorSize="0"
+                VerticalOptions="Center" 
+                BackgroundColor="#222222"/>
+    </StackLayout>
+    
+</ContentPage>

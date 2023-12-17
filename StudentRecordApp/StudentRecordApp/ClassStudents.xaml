@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.ClassStudents">
+    
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            <Label x:Name="ClassNameLabel" TextColor="White" FontSize="Subtitle" FontFamily="{StaticResource BoldFont}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="30" BackgroundColor="White">
+            <Frame CornerRadius="8" BackgroundColor="AliceBlue" Padding="0">
+                <Entry x:Name="SearchEntry" FontFamily="{StaticResource RegularFont}" Placeholder="Search by name" TextChanged="OnSearchTextChanged" Margin="10" TextColor="#003566" PlaceholderColor="#003566" />
+            </Frame>
+
+            <Frame CornerRadius="8" BackgroundColor="CadetBlue" Padding="0">
+                <Picker x:Name="GradeLevelPicker" Title="Select Year Level" SelectedIndexChanged="OnGradeLevelSelectedIndexChanged" Margin="10" TextColor="White" FontFamily="{StaticResource RegularFont}">
+                    <Picker.Items>
+                        <x:String>All Year Levels</x:String>
+                        <x:String>1st Year</x:String>
+                        <x:String>2nd Year</x:String>
+                        <x:String>3rd Year</x:String>
+                        <x:String>4th Year</x:String>
+                        <x:String>5th Year</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Frame>
+
+            <Label Text="Student List" FontAttributes="Bold" TextColor="Gray" Margin="0,30,0,0" FontFamily="{StaticResource RegularFont}"/>
+            <!-- ListView to display students -->
+            <ListView x:Name="StudentsListView" ItemSelected="OnItemSelected" RowHeight="60">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <!-- Image for the left side -->
+                                <Image Source="https://static.vecteezy.com/system/resources/previews/009/734/564/original/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                           Aspect="AspectFill"
+                           HeightRequest="100"
+                           WidthRequest="50"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start" />
+
+                                <StackLayout>
+                                    <!-- First Line -->
+                                    <Label Text="{Binding full_name}" FontAttributes="Bold" TextColor="#003566" FontFamily="{StaticResource BoldFont}"/>
+
+                                    <!-- Second Line (Details) -->
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding year_level}" TextColor="#003566" FontFamily="{StaticResource RegularFont}" Margin="0,0,0,-20"/>
+                                        <!-- <Label Text="{Binding phone}" Margin="10,0,0,0" /> -->
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <!-- Context Actions -->
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnEdit" CommandParameter="{Binding .}" Text="Edit"/>
+                                <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" IsDestructive="True" Text="Delete"/>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button CornerRadius="8" Text="Add Student" Clicked="OnAddStudentClicked" HorizontalOptions="FillAndExpand" FontFamily="{StaticResource BoldFont}" TextColor="White" BackgroundColor="#003566"/>
+            <Button CornerRadius="8" Text="Record Attendance" Clicked="OnRecordAttendanceClicked" HorizontalOptions="FillAndExpand" FontFamily="{StaticResource BoldFont}" TextColor="White" BackgroundColor="CadetBlue"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

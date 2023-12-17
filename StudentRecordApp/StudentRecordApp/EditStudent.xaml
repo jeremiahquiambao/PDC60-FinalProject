@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.EditStudent">
+
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            <Label Text="Edit Personal Information" TextColor="White" FontSize="Subtitle" FontFamily="{StaticResource BoldFont}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="30" BackgroundColor="#003566">
+            <Label FontFamily="{StaticResource RegularFont}" Text="Select Year Level" />
+            <Picker x:Name="YearLevelPicker"
+                    Title="Choose Year Level"
+                    SelectedIndexChanged="OnYearLevelSelectedIndexChanged"
+                    FontFamily="{StaticResource RegularFont}">
+                <Picker.Items FontFamily="{StaticResource RegularFont}">
+                    <x:String>1st Year</x:String>
+                    <x:String>2nd Year</x:String>
+                    <x:String>3rd Year</x:String>
+                    <x:String>4th Year</x:String>
+                    <x:String>5th Year</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label FontFamily="{StaticResource RegularFont}" Text="First Name" />
+            <Entry FontFamily="{StaticResource RegularFont}" Placeholder="Enter your first name" x:Name="FirstNameEntry" />
+            <Label FontFamily="{StaticResource RegularFont}" Text="Last Name" />
+            <Entry FontFamily="{StaticResource RegularFont}" Placeholder="Enter your last name" x:Name="LastNameEntry" />
+            <Label FontFamily="{StaticResource RegularFont}" Text="Date of Birth" />
+            <DatePicker x:Name="DateOfBirthPicker" />
+            <Label FontFamily="{StaticResource RegularFont}" Text="Email Address" />
+            <Entry FontFamily="{StaticResource RegularFont}" Placeholder="Enter your email address" x:Name="EmailEntry" Keyboard="Email" />
+            <Label FontFamily="{StaticResource RegularFont}" Text="Phone Number" />
+            <Entry FontFamily="{StaticResource RegularFont}" Placeholder="Enter your phone number" x:Name="PhoneEntry" />
+            <Label FontFamily="{StaticResource RegularFont}" Text="Home Address" />
+            <Editor FontFamily="{StaticResource RegularFont}" Placeholder="Enter your home address" x:Name="AddressEntry"/>
+            <Button FontFamily="{StaticResource BoldFont}" CornerRadius="8" Text="Save Changes" Clicked="OnSaveChangesClicked"/>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

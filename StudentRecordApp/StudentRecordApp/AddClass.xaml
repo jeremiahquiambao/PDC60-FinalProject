@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.AddClass">
+    
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            <Label Text="Add Course" TextColor="White" FontSize="Subtitle" FontFamily="{StaticResource BoldFont}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="30" BackgroundColor="#003566">
+            <!-- Entry for Class Name -->
+            <Entry x:Name="ClassNameEntry" Placeholder="Class Course" Margin="0,10,0,10"/>
+
+            <!-- Entry for Class ID (if needed) -->
+            <!--<Entry x:Name="ClassIdEntry" Placeholder="Class ID" Margin="0,10,0,10"/>-->
+
+            <!-- Button to Add Class -->
+            <Button FontFamily="{StaticResource BoldFont}" CornerRadius="8" Text="Add Course" Clicked="OnAddClassClicked" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="0,20,0,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

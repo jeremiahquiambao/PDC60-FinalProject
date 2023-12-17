@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.ViewStudent">
+
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            <Label Text="Student Details" TextColor="White" FontSize="Subtitle" FontFamily="{StaticResource BoldFont}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        
+        <StackLayout Padding="30" BackgroundColor="#003566">
+
+            <!-- Personal Information -->
+            <Label FontFamily="{StaticResource BoldFont}" Text="Personal Information" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10,0,20"/>
+            <Label FontFamily="{StaticResource BoldFont}" x:Name="IdLabel" FontAttributes="Bold" />
+            <Label FontFamily="{StaticResource BoldFont}" x:Name="GradeLevelLabel" FontAttributes="Bold" />
+            <Label FontFamily="{StaticResource RegularFont}" x:Name="FirstNameLabel" />
+            <Label FontFamily="{StaticResource RegularFont}" x:Name="LastNameLabel" />
+            <Label FontFamily="{StaticResource RegularFont}" x:Name="DateOfBirthLabel" />
+            <Label FontFamily="{StaticResource RegularFont}" x:Name="EmailLabel" />
+            <Label FontFamily="{StaticResource RegularFont}" x:Name="PhoneLabel" />
+            <Label FontFamily="{StaticResource RegularFont}" x:Name="AddressLabel" />
+
+            <Button FontFamily="{StaticResource BoldFont}" CornerRadius="8" Text="Edit Details" Clicked="OnEditStudentDetailsClicked" HorizontalOptions="FillAndExpand" Margin="0,10,0,0" />
+
+            <!-- Separator -->
+            <BoxView HeightRequest="1" Color="LightGray" Opacity="0.2" Margin="0,20,0,20" />
+
+            <!-- Academic History -->
+            <Label FontFamily="{StaticResource BoldFont}" Text="Academic History" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <!-- Academic History ListView... -->
+            <ListView x:Name="AcademicHistoryListView" Margin="0,10,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell TextColor="White" Text="{Binding school}" Detail="{Binding history}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Edit" Clicked="OnEditClicked" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Delete" Clicked="OnDeleteClicked" CommandParameter="{Binding .}"/>
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Button for adding academic history -->
+            <Button FontFamily="{StaticResource BoldFont}" CornerRadius="8" Text="Add Academic History" Clicked="OnAddAcademicHistoryClicked" HorizontalOptions="FillAndExpand" Margin="0,10,0,0"/>
+
+            <!-- Separator -->
+            <BoxView HeightRequest="1" Color="LightGray" Opacity="0.2" Margin="0,20,0,20" />
+
+            <!-- Attendance Records -->
+            <Label FontFamily="{StaticResource BoldFont}" Text="Attendance Records" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <!-- Attendance Records ListView... -->
+            <ListView x:Name="AttendanceListView" Margin="0,30,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label FontFamily="{StaticResource RegularFont}" Text="{Binding attendance_date}" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label FontFamily="{StaticResource BoldFont}" Text="{Binding status}" HorizontalOptions="End"/>
+                            </Grid>
+
+                            <ViewCell.ContextActions>
+                                <!-- Edit Action -->
+                                <MenuItem Text="Edit" CommandParameter="{Binding .}" Clicked="OnEditAttendanceClicked" />
+
+                                <!-- Delete Action -->
+                                <MenuItem Text="Delete" CommandParameter="{Binding .}" Clicked="OnDeleteAttendanceClicked" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

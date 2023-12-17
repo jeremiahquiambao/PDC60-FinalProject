@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentRecordApp.LoginPage">
+    
+    <ContentPage.Resources>
+        <!-- Entry Style for iOS -->
+        <Style TargetType="Entry" x:Key="WhiteEntryStyle">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="PlaceholderColor" Value="White" />
+            <!-- Other platform-specific properties can be added here -->
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid>
+            <!-- Background Image -->
+            <Image Source="https://i.ibb.co/173VjTx/Login-Page.png" Aspect="AspectFill" />
+
+            <!-- Login Content StackLayout (positioned above the image) -->
+            <StackLayout Padding="40" VerticalOptions="End">
+                <Entry Style="{StaticResource WhiteEntryStyle}" FontFamily="{StaticResource RegularFont}" x:Name="UsernameEntry" Placeholder="Username" />
+                <Entry Style="{StaticResource WhiteEntryStyle}" FontFamily="{StaticResource RegularFont}" x:Name="PasswordEntry" Placeholder="Password" IsPassword="true" Margin="0,10,0,0" />
+                <Button Text="Log In" FontFamily="{StaticResource BoldFont}" TextColor="#003566" BackgroundColor="White" CornerRadius="7" Clicked="OnLoginClicked" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
